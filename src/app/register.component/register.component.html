@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="card mx-auto" style="max-width:540px;">
+    <div class="card-body">
+      <h5 class="card-title text-center mb-3">Cadastro</h5>
+
+      <form (ngSubmit)="submit()">
+        <div class="mb-3">
+          <label class="form-label">Nome</label>
+          <input class="form-control" required [(ngModel)]="nome" name="nome" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" required [(ngModel)]="email" name="email" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Senha</label>
+          <input type="password" class="form-control" required [(ngModel)]="senha" name="senha" />
+        </div>
+
+        <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+        <div *ngIf="success" class="alert alert-success">{{ success }}</div>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <button class="btn btn-primary" type="submit" [disabled]="loading">{{ loading ? 'Cadastrando...' : 'Registrar' }}</button>
+          <a routerLink="/login" class="btn btn-link">Já tenho conta</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

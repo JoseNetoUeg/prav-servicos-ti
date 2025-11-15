@@ -1,0 +1,4 @@
+.card { box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+.card-title { font-weight: 600; }
+/* small responsive tweak */
+@media (max-width: 420px){ .container { padding: 1rem; } }

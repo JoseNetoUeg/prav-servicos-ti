@@ -13,6 +13,10 @@ import { ServicoListComponent } from './servico-list.component/servico-list.comp
 import { ServicoCreateComponent } from './servico-create.component/servico-create.component';
 import { ServicoUpdateComponent } from './servico-update.component/servico-update.component';
 import { ServicoDetailComponent } from './servico-detail.component/servico-detail.component';
+import { LoginComponent } from './login.component/login.component';
+import { RegisterComponent } from './register.component/register.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 
@@ -30,7 +34,12 @@ import { ServicoDetailComponent } from './servico-detail.component/servico-detai
     // AppRoutingModule removed because './app-routing.module' was not found; add a routing module later if needed.
     // Adicionar os módulos de funcionalidade aqui:
     HttpClientModule, // Permite chamadas REST [1]
-    FormsModule       // Permite formulários bidirecionais [3]
+    FormsModule,      // Permite formulários bidirecionais [3]
+    LoginComponent,
+    RegisterComponent
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [App]
 })

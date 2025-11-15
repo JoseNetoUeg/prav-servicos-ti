@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Servico } from '../model/servico.model'; // Importa a classe de modelo
 
 @Injectable({
@@ -8,8 +9,8 @@ import { Servico } from '../model/servico.model'; // Importa a classe de modelo
 })
 export class ServicoService {
   
-  // URL base, assumindo o mapeamento do Spring Boot
-  private baseURL = "http://localhost:8080/cservico/servico"; 
+  // URL base relativa — permite que o dev-server (proxy.conf.json) encaminhe para o backend
+  private baseURL = "/cservico/servico";
   
   // Injeção de dependência do HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -25,8 +26,17 @@ export class ServicoService {
   }
 
   // 3. INCLUIR (Create)
-  createServico(servico: Servico): Observable<Object> {
-    return this.httpClient.post(`${this.baseURL}`, servico);
+  createServico(servico: Servico): Observable<any> {
+    // Ajusta a resposta do backend: alguns endpoints retornam 'codigo' em vez de 'id'.
+    // Normalizamos para expor sempre 'id' no objeto retornado.
+    return this.httpClient.post<any>(`${this.baseURL}`, servico).pipe(
+      map(res => {
+        if (res && res.codigo && !res.id) {
+          res.id = res.codigo;
+        }
+        return res;
+      })
+    );
   }
   
   // 4. ALTERAR (Update)

@@ -1,0 +1,19 @@
+{
+  "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
+  "terminal.integrated.profiles.windows": {
+    "Windows PowerShell": {
+      "path": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+      ],
+      "args": []
+    },
+    "PowerShell Core": {
+      "path": [
+        "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+      ],
+      "args": []
+    }
+  },
+  // Fallback (deprecated) for older VS Code versions
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+}

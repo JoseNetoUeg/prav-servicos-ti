@@ -183,6 +183,12 @@
 </style>
 
 <main class="main">
+  <header style="width:100%; display:flex; justify-content:flex-end; padding:0.5rem 1rem; box-sizing:border-box;">
+    <nav>
+      <a *ngIf="!isLogged()" routerLink="/login" style="margin-right:1rem;">Login</a>
+      <a *ngIf="isLogged()" (click)="logout()" style="cursor:pointer;">Sair{{ userName() ? ' (' + userName() + ')' : '' }}</a>
+    </nav>
+  </header>
   <div class="content">
     <div class="left-side">
       <svg

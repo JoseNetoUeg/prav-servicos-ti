@@ -1,4 +1,6 @@
 import { Component, signal } from '@angular/core';
+import { AuthService } from './service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +10,20 @@ import { Component, signal } from '@angular/core';
 })
 export class App {
   protected readonly title = signal('prav-frontend-servico');
+  constructor(private auth: AuthService, private router: Router) {}
+
+  userName(): string | null {
+    const u = this.auth.getUser();
+    if (!u) return null;
+    return u.nome || u.email || null;
+  }
+
+  isLogged(): boolean {
+    return this.auth.isLoggedIn();
+  }
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/login']);
+  }
 }

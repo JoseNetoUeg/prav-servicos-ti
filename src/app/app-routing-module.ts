@@ -6,6 +6,8 @@ import { ServicoListComponent } from './servico-list.component/servico-list.comp
 import { ServicoCreateComponent } from './servico-create.component/servico-create.component'; 
 import { ServicoUpdateComponent } from './servico-update.component/servico-update.component'; 
 import { ServicoDetailComponent } from './servico-detail.component/servico-detail.component'; 
+import { LoginComponent } from './login.component/login.component';
+import { RegisterComponent } from './register.component/register.component';
 
 const routes: Routes = [
   // Rotas que mapeiam os caminhos para os componentes
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'servicos/create', component: ServicoCreateComponent }, // Rota para Incluir
   { path: 'servicos/update/:id', component: ServicoUpdateComponent }, // Rota para Alterar [1]
   { path: 'servicos/details/:id', component: ServicoDetailComponent }, // Rota para Consultar [1]
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: 'servicos', pathMatch: 'full' } // Rota padrão [1]
 ];
 

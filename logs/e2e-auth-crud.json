@@ -1,0 +1,63 @@
+{
+  "steps": [
+    "navigate_register",
+    {
+      "action": "register_error",
+      "message": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:4200/register\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4200/register\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    "navigate_login",
+    {
+      "action": "login_error",
+      "message": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:4200/login\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4200/login\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    "navigate_create",
+    {
+      "action": "create_error",
+      "message": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:4200/servicos/create\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4200/servicos/create\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    }
+  ],
+  "network": [
+    {
+      "type": "request",
+      "url": "http://localhost:4200/register",
+      "method": "GET",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "postData": null,
+      "timestamp": 1763211528339
+    },
+    {
+      "type": "request",
+      "url": "http://localhost:4200/login",
+      "method": "GET",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "postData": null,
+      "timestamp": 1763211530726
+    },
+    {
+      "type": "request",
+      "url": "http://localhost:4200/servicos/create",
+      "method": "GET",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "postData": null,
+      "timestamp": 1763211531214
+    }
+  ]
+}

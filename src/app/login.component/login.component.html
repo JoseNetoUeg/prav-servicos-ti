@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="card mx-auto" style="max-width:420px;">
+    <div class="card-body">
+      <h5 class="card-title text-center mb-3">Entrar</h5>
+
+      <form (ngSubmit)="submit()" #f="ngForm">
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" required [(ngModel)]="email" name="email" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Senha</label>
+          <div class="input-group">
+            <input [type]="showPassword ? 'text' : 'password'" class="form-control" required [(ngModel)]="senha" name="senha" />
+            <button type="button" class="btn btn-outline-secondary" (click)="toggleShow()">{{ showPassword ? 'Ocultar' : 'Mostrar' }}</button>
+          </div>
+        </div>
+
+        <div class="mb-3 form-check">
+          <input class="form-check-input" type="checkbox" id="remember" [(ngModel)]="remember" name="remember" />
+          <label class="form-check-label" for="remember">Lembrar-me</label>
+        </div>
+
+        <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <button class="btn btn-primary" type="submit" [disabled]="loading">{{ loading ? 'Entrando...' : 'Entrar' }}</button>
+          <div>
+            <a routerLink="/forgot" class="btn btn-link">Esqueci a senha</a>
+            <a routerLink="/register" class="btn btn-link">Registrar</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
