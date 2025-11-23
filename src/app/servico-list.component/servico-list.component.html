@@ -31,7 +31,7 @@
                 <td>{{ s.descricaoDetalhada }}</td>
                 <td>{{ s.dataExecucao | date:'shortDate' }}</td>
                 <td>{{ s.valor | currency:'BRL' }}</td>
-                <td>{{ s.disponivel ? 'Sim' : 'Não' }}</td>
+                <td>{{ formatDisponivel(s.disponivel) }}</td>
                 <td>
                   <button class="btn btn-sm btn-outline-info me-1" (click)="viewDetails(s.codigo)"><i class="bi bi-eye"></i></button>
                   <button class="btn btn-sm btn-outline-warning me-1" (click)="editServico(s.codigo)"><i class="bi bi-pencil"></i></button>

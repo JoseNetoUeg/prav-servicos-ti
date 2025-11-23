@@ -43,4 +43,17 @@ export class ServicoListComponent implements OnInit {
   createNew(): void {
     this.router.navigate(['/servicos/create']);
   }
+
+  // Garante que diferentes formatos retornados pelo backend sejam
+  // apresentados corretamente como 'Sim' / 'Não'. Aceita boolean,
+  // números (1/0), strings 'true'/'false', 'sim'/'não' (case-insensitive).
+  formatDisponivel(v: any): string {
+    if (v === true || v === 'true' || v === 'True') return 'Sim';
+    if (v === 1 || v === '1') return 'Sim';
+    if (typeof v === 'string') {
+      const s = v.trim().toLowerCase();
+      if (s === 'sim' || s === 's' || s === 'true' || s === '1' || s === 'yes') return 'Sim';
+    }
+    return 'Não';
+  }
 }

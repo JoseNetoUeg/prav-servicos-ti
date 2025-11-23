@@ -15,7 +15,8 @@ export class App {
   userName(): string | null {
     const u = this.auth.getUser();
     if (!u) return null;
-    return u.nome || u.email || null;
+    // Mostrar somente o nome no botão Sair. Não exibir email aqui.
+    return u.nome || null;
   }
 
   isLogged(): boolean {
